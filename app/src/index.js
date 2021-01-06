@@ -9,8 +9,8 @@ import logger from "redux-logger";
 import thunk from "redux-thunk";
 import { stateReducer } from "./reducers/stateReducer";
 
-//create the store with applyMiddleware (with thunk and logger dependencies.)
-const store = createStore(stateReducer, applyMiddleware(thunk, logger));
+//create the store with applyMiddleware (with thunk and logger parameter.)
+const store = createStore(stateReducer, applyMiddleware(thunk, logger)); //** Logger always needs to be the last parameter in the applyMiddleware function since nothing will run after logger is ran. */
 //normal rendering with the Provider surrounding the App Component.
 ReactDOM.render(
   <React.StrictMode>

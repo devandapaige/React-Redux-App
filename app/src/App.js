@@ -1,25 +1,28 @@
-import logo from './logo.svg';
-import './App.css';
+//now that the stateReducer, stateActions, and store are set up we need to CONNECT App.js.//
+import logo from "./logo.svg";
+import "./App.css";
+
+//redux imports:
+import { connect } from "react-redux";
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+      <header>
+        <h1>Rick & Morty</h1>
+        <nav>
+          {/* Maybe add additional buttons for Sort by: 'Characters', 'Locations', & 'Episodes' */}
+          <button>↩</button>
+          <button>↪</button>
+        </nav>
       </header>
     </div>
   );
 }
+const mapStateToProps = (state) => {
+  return {
+    state: state,
+  };
+};
 
-export default App;
+export default connect(mapStateToProps, [])(App);
