@@ -9,12 +9,12 @@ export const getCharacters = () => (dispatch) => {
   axios
     .get("https://rickandmortyapi.com/api/character")
     .then((res) => {
-      console.log(res);
+      //console.log(res);
       //this means - If the data is able to be accessed, we will consider that the "success" and the information we want will travel in the payload:
       dispatch({ type: SUCCESS, payload: res.data });
     })
     .catch((err) => {
-      console.log(err);
+      //console.log(err);
       dispatch({ type: ERROR, payload: err.message });
     });
 };
